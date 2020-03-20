@@ -101,8 +101,9 @@ class CountryStats extends Component {
     } else {
       return (
         <div>
+          <h4>Overall History</h4>
+          <br/>
           <Line data={data} />
-          
         </div>
       );
     }

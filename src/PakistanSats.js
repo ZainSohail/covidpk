@@ -54,19 +54,18 @@ class PakistanSats extends Component {
 
   render() {
     const { error, isLoaded, data } = this.state;
-    //var lastestStat = data.stat_by_country[data.stat_by_country.length];
 
     var countryStat = data.stat_by_country;
 
     if ( countryStat !== undefined ) {
       var record = countryStat.pop();
-      var recordDate = new Date(record.record_date);
+      //var recordDate = new Date(record.record_date);
       var totalCases = record.total_cases;
       var newCases = record.new_cases;
       var totalDeaths = record.total_deaths;
       var totalRecovered = record.total_recovered;
     } else {
-      var recordDate = '';
+      //var recordDate = new Date();
       var totalCases = 0;
       var newCases = 0;
       var totalDeaths = 0;
@@ -84,11 +83,11 @@ class PakistanSats extends Component {
         <div>
           <hr className="my-4" />
           <div className="row" key="2232">
-            <div className="col"> <strong class="lead" style={{color: "#000"}}> Pakistan <br/> {recordDate.toISOString().split('T')[0]} </strong> </div>
-            <div className="col"> <p class="lead" style={{color: "#333"}}> Total: <CountUp end={totalCases} /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "#333"}}> New: <CountUp end={newCases} /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "green"}}> Recovered: <CountUp end={totalRecovered} /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "red"}}> Deaths: <CountUp end={totalDeaths} /> </p> </div>
+            <div className="col-sm"> <p><strong class="lead" style={{color: "#000"}}> Pakistan: </strong></p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "#333"}}> Total: <CountUp end={totalCases} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "#333"}}> New: <CountUp end={newCases} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "green"}}> Recovered: <CountUp end={totalRecovered} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "red"}}> Deaths: <CountUp end={totalDeaths} /> </p> </div>
           </div
 >        </div>
       );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
+import Moment from 'moment';
 
 class CountryStats extends Component {
 
@@ -49,21 +50,13 @@ class CountryStats extends Component {
   render() {
     const { error, isLoaded, cdata } = this.state;
 
-    console.log(cdata);
-
     var labels = [], cases = [];
 
     if ( cdata.stat_by_country !== undefined ) {
 
       for (let i = 0; i < cdata.stat_by_country.length; i++) {
-          
-          var date = new Date(cdata.stat_by_country[i].record_date);
-
-          const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(date)
-          const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date)
-
-          labels.push(mo + ' ' + da);
-          cases.push(cdata.stat_by_country[i].total_cases.replace(",", ""));
+        labels.push(Moment(cdata.stat_by_country[i].record_date).format('MMM Do'));
+        cases.push(cdata.stat_by_country[i].total_cases.replace(",", ""));
       }
 
     }
@@ -101,7 +94,7 @@ class CountryStats extends Component {
     } else {
       return (
         <div>
-          <h4>Overall History</h4>
+          <h4>History</h4>
           <br/>
           <Line data={data} />
         </div>

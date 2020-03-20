@@ -61,15 +61,11 @@ class CountryPie extends Component {
 
     if ( countryStat !== undefined ) {
       var record = countryStat.pop();
-      var recordDate = new Date(record.record_date);
       var totalCases = record.total_cases;
-      var newCases = record.new_cases;
       var totalDeaths = record.total_deaths;
       var totalRecovered = record.total_recovered;
     } else {
-      var recordDate = '';
       var totalCases = 0;
-      var newCases = 0;
       var totalDeaths = 0;
       var totalRecovered = 0;
     }
@@ -83,14 +79,14 @@ class CountryPie extends Component {
           datasets: [{
             data: [totalCases, totalRecovered, totalDeaths],
             backgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+            '#333',
+            'green',
+            'red'
             ],
             hoverBackgroundColor: [
-            '#FF6384',
-            '#36A2EB',
-            '#FFCE56'
+            '#333',
+            'green',
+            'red'
             ]
           }]
         };

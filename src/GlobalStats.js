@@ -8,7 +8,7 @@ class GlobalStats extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      grecordDate: '',
+      //grecordDate: new Date(),
       gtotalCases: 0,
       gnewCases: 0,
       gtotalDeaths: 0,
@@ -32,10 +32,9 @@ class GlobalStats extends Component {
     .then(res => res.json())
     .then(
       (result) => {
-        console.log(result);
         this.setState({
           isLoaded: true,
-          grecordDate: new Date(result.statistic_taken_at),
+          //grecordDate: new Date(result.statistic_taken_at),
           gtotalCases: parseInt(result.total_cases.replace(",", "")),
           gnewCases: parseInt(result.new_cases.replace(",", "")),
           gtotalDeaths: parseInt(result.total_deaths.replace(",", "")),
@@ -60,7 +59,7 @@ class GlobalStats extends Component {
   }
 
   render() {
-    const { error, isLoaded, cdata, grecordDate, gtotalCases, gnewCases, gtotalDeaths, gtotalRecovered } = this.state;
+    const { error, isLoaded, grecordDate, gtotalCases, gnewCases, gtotalDeaths, gtotalRecovered } = this.state;
     
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -71,11 +70,11 @@ class GlobalStats extends Component {
         <div>
           <hr class="my-4" />
           <div className="row">
-            <div className="col"> <strong class="lead" style={{color: "#000"}}> Global <br/> {grecordDate.toISOString().split('T')[0]} </strong> </div>
-            <div className="col"> <p class="lead" style={{color: "#333"}}> Total: <CountUp end={gtotalCases} decimals={0} decimal="," /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "#333"}}> New: <CountUp end={gnewCases} /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "green"}}> Recovered: <CountUp end={gtotalRecovered} /> </p> </div>
-            <div className="col"> <p class="lead" style={{color: "red"}}> Deaths: <CountUp end={gtotalDeaths} /> </p> </div>
+            <div className="col-sm"> <p><strong class="lead" style={{color: "#000"}}> Global: </strong></p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "#333"}}> Total: <CountUp end={gtotalCases} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "#333"}}> New: <CountUp end={gnewCases} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "green"}}> Recovered: <CountUp end={gtotalRecovered} /> </p> </div>
+            <div className="col-sm"> <p class="lead" style={{color: "red"}}> Deaths: <CountUp end={gtotalDeaths} /> </p> </div>
           </div>
         </div>
       );

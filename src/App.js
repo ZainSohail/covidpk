@@ -32,7 +32,7 @@ function App() {
           <div className="col-md-6 m-auto">
             <CountryStats />
           </div>
-          <div className="col-md-6 m-auto">
+          <div className="col-md-6 m-auto mt-2">
             <CountryPie />
           </div>
         </div>

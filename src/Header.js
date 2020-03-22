@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CountUp from 'react-countup';
-import {Doughnut} from 'react-chartjs-2';
 import Moment from 'moment';
 
 class Header extends Component {
@@ -68,10 +66,10 @@ class Header extends Component {
         <div>
         <header>
             <div className="row">
-                <div className="col-md-6 text-left"><p class="lead"><strong>COVID-19 in Pakistan</strong></p> </div>
+                <div className="col-md-6 text-left"><p className="lead"><strong>COVID-19 in Pakistan</strong></p> </div>
                 <div className="col-md-6 text-right">
-                    <p class="lead mb-0"><small class="tx-color-03"><strong>Last Updated:</strong></small></p>
-                    <p class="lead"><small class="tx-color-03">{Moment(record.date).format('Do MMMM HH:mm a')}</small></p>
+                    <p className="lead mb-0"><small className="tx-color-03"><strong>Last Updated:</strong></small></p>
+                    <p className="lead"><small className="tx-color-03">{Moment(record.date).format('Do MMMM HH:mm')}</small></p>
                 </div>
             </div>
             <hr />

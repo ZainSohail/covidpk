@@ -1,0 +1,148 @@
+{
+  "countries" : {
+    "china" : {
+      "country_id" : 2,
+      "country_name" : "China",
+      "country_slug" : "china",
+      "population_size" : "123",
+      "provinces" : [ {
+        "name" : "Hubei",
+        "population_size" : "123",
+        "slug" : "hubei",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        }, {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      } ]
+    },
+    "pakistan" : {
+      "country_id" : 1,
+      "country_name" : "Pakistan",
+      "country_slug" : "pakistan",
+      "population_size" : "123",
+      "provinces" : [ {
+        "name" : "Sindh",
+        "population_size" : "123",
+        "slug" : "sindh",
+        "stats" : 0,
+        "total_cases" : "1234"
+      }, {
+        "name" : "Punjab",
+        "population_size" : "123",
+        "slug" : "punjab",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      }, {
+        "name" : "Khyber Pakhtunkhwa",
+        "population_size" : "123",
+        "slug" : "kpt",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      }, {
+        "name" : "Balochistan",
+        "population_size" : "123",
+        "slug" : "balochistan",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      }, {
+        "name" : "ISLAMABAD CAPITAL TERITORY",
+        "population_size" : "123",
+        "slug" : "ict",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      }, {
+        "name" : "AZAD JAMMU AND KASHMIR",
+        "population_size" : "123",
+        "slug" : "ajk",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      }, {
+        "name" : "Gilgit Baltistan",
+        "population_size" : "123",
+        "slug" : "gb",
+        "stats" : [ {
+          "cases" : 1,
+          "date" : "2020-03-21T23:23:39.081Z",
+          "discharged" : 1,
+          "expired" : 1,
+          "growth_rate" : "1.5",
+          "in_hospital" : 1,
+          "tests_negative" : 1,
+          "tests_performed" : 1,
+          "tests_positive" : 1
+        } ],
+        "total_cases" : "1234"
+      } ]
+    }
+  },
+  "total_cases" : 48515,
+  "total_deaths" : 481,
+  "total_recovered" : 1511
+}

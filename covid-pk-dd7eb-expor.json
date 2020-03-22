@@ -1,0 +1,142 @@
+{
+   "countries":{
+      "pakistan":{
+         "country_id":1,
+         "country_name":"Pakistan",
+         "country_slug":"pakistan",
+         "population_size":"212742631",
+         "provinces":{
+            "sindh": {
+               "name":"Sindh",
+               "population_size":"47886051",
+               "slug":"sindh",
+               "total_cases":"3",
+               "stats":[
+                  {
+                     "newcases":"4",
+                     "cumulative_suspected":"70",
+                     "cumulative_tests":"96",
+                     "cumulative_tests_positive":"3",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"3",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            },
+            "punjab": {
+               "name":"Punjab",
+               "population_size":"110012442",
+               "slug":"punjab",
+               "total_cases":"0",
+               "stats":[
+                  {
+                     "newcases":"5",
+                     "cumulative_suspected":"48",
+                     "cumulative_tests":"80",
+                     "cumulative_tests_positive":"0",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"0",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            },
+            "kpt":{
+               "name":"Khyber Pakhtunkhwa",
+               "population_size":"30523371",
+               "slug":"kpt",
+               "total_cases":"0",
+                "stats":[
+                  {
+                     "newcases":"0",
+                     "cumulative_suspected":"20",
+                     "cumulative_tests":"25",
+                     "cumulative_tests_positive":"0",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"0",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            },
+            "balochistan":{
+               "name":"Balochistan",
+               "population_size":"12344408",
+               "slug":"balochistan",
+               "total_cases":"0",
+               "stats":[
+                  {
+                     "newcases":"1",
+                     "cumulative_suspected":"14",
+                     "cumulative_tests":"8",
+                     "cumulative_tests_positive":"0",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"0",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]              
+            },
+            "ict":{
+               "name":"ISLAMABAD CAPITAL TERITORY",
+               "population_size":"2006572",
+               "slug":"ict",
+               "total_cases":"2",
+               "stats":[
+                 {
+                     "newcases":"1",
+                     "cumulative_suspected":"39",
+                     "cumulative_tests":"61",
+                     "cumulative_tests_positive":"2",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"2",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            },
+            "ajk":{
+               "name":"AZAD JAMMU AND KASHMIR",
+               "population_size":"4045366",
+               "slug":"ajk",
+               "total_cases":"0",
+               "stats":[
+                  {
+                     "newcases":"0",
+                     "cumulative_suspected":"3",
+                     "cumulative_tests":"4",
+                     "cumulative_tests_positive":"0",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"0",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            },
+            "gb":{
+               "name":"Gilgit Baltistan",
+               "population_size":"1900000",
+               "slug":"gb",
+               "total_cases":"1",
+               "stats":[
+                  {
+                     "newcases":"1",
+                     "cumulative_suspected":"9",
+                     "cumulative_tests":"14",
+                     "cumulative_tests_positive":"1",
+                     "discharged":"0",
+                     "expired":"0",
+                     "still_admitted":"1",
+                     "date":"Mon Mar 07 2020 03:29:56 GMT+0500 (Pakistan Standard Time)"
+                  }
+               ]
+            }
+         }
+      }
+   },
+   "total_cases": 6,
+   "total_in_hospital": 6,
+   "total_deaths": 0,
+   "total_recovered": 0
+}

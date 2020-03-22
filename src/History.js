@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import Moment from 'moment';
 
-class CountryStats extends Component {
+class History extends Component {
 
   constructor(props) {
     super(props);
@@ -19,11 +19,10 @@ class CountryStats extends Component {
   }
 
   async fetchStats() {
-    fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_particular_country.php?country=Pakistan", {
+    fetch("https://corona.onx.digital/data.json", {
       method: "GET",
       headers: {
-        "x-rapidapi-host": "coronavirus-monitor.p.rapidapi.com",
-        "x-rapidapi-key": "OdCHBwGU6jmshugiwvTI5OYm49usp1fePOwjsnZwIVAWoTE6oI"
+        'Content-Type': 'application/json'
       }
     })
     .then(res => res.json())
@@ -52,11 +51,11 @@ class CountryStats extends Component {
 
     var labels = [], cases = [];
 
-    if ( cdata.stat_by_country !== undefined ) {
+    if ( cdata.length !== undefined ) {
 
-      for (let i = 0; i < cdata.stat_by_country.length; i++) {
-        labels.push(Moment(cdata.stat_by_country[i].record_date).format('MMM Do'));
-        cases.push(cdata.stat_by_country[i].total_cases.replace(",", ""));
+      for (let i = 0; i < cdata.length; i++) {
+        labels.push(Moment(cdata[i].date).format('MMM Do'));
+        cases.push(cdata[i].total.replace(",", ""));
       }
 
     }
@@ -103,4 +102,4 @@ class CountryStats extends Component {
   }
 }
 
-export default CountryStats; // Don’t forget to use export default!
+export default History; // Don’t forget to use export default!

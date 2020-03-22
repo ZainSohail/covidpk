@@ -2,9 +2,41 @@
   text-align: center;
 }
 
+.App .jumbotron {
+    background-color: #fff;
+}
+
+.card-title {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+}
+
+.tx-color-03 {
+    font-size: 12px;
+    color: #8392a5;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
 }
 
 html,body {

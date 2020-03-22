@@ -30,7 +30,7 @@ function App() {
 
         <div className="row  mt-5">
           <div className="col-md-12 m-auto">
-            <History />
+            {/*<History />*/}
           </div>
         </div>
 

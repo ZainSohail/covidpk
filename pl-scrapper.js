@@ -74,7 +74,7 @@ cron.schedule("0 * * * *", function() {
 
         });
 
-        var c = new Client();
+        /*var c = new Client();
         c.on('ready', function() {
         c.put('data.json', 'data.json', function(err) {
           if (err) throw err;
@@ -88,7 +88,7 @@ cron.schedule("0 * * * *", function() {
             port: '21',
             user: 'corona@onx.digital',
             password: '*x;g?WqKX)Pf'
-        });
+        });*/
     })
     .catch(console.error);
     console.log("Ending Cron Job");

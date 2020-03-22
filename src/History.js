@@ -49,13 +49,21 @@ class History extends Component {
   render() {
     const { error, isLoaded, cdata } = this.state;
 
+    var dateData = cdata.filter(function (index, i) {
+          var prev = i - 1;
+          var cdate = new Date(index.date);
+          var pdate = new Date(cdata[(i > 0 ? prev : 0)].date);
+          
+          return cdate.getTime() <= pdate.getTime();
+    });
+
     var labels = [], cases = [];
 
-    if ( cdata.length !== undefined ) {
+    if ( dateData.length !== undefined ) {
 
-      for (let i = 0; i < cdata.length; i++) {
-        labels.push(Moment(cdata[i].date).format('MMM Do'));
-        cases.push(cdata[i].total.replace(",", ""));
+      for (let i = 0; i < dateData.length; i++) {
+        labels.push(Moment(dateData[i].date).format('D MMM HH:mm a'));
+        cases.push(dateData[i].total.replace(",", ""));
       }
 
     }
@@ -93,9 +101,11 @@ class History extends Component {
     } else {
       return (
         <div>
-          <h4>History</h4>
+          <h4>Heartbeat</h4>
           <br/>
-          <Line data={data} />
+          <div className="mb-5">
+            <Line data={data} height={200} options={{ maintainAspectRatio: true }} />
+          </div>
         </div>
       );
     }

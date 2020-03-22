@@ -52,6 +52,12 @@ html,body {
   #root, .App, .jumbotron {
     height: auto;
   }
+
+  footer .col-md-4,
+  footer .col-md-8,
+  header .col-md-6  {
+    text-align: center !important;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -75,6 +81,11 @@ html,body {
   color: #61dafb;
 }
 
+
+header .lead {
+    line-height: 1;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -82,4 +93,9 @@ html,body {
   to {
     transform: rotate(360deg);
   }
+}
+
+
+footer p.lead {
+  font-size: .8rem;
 }

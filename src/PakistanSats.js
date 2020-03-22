@@ -165,9 +165,8 @@ class PakistanSats extends Component {
     } else {
       return (
         <div>
-           <hr className="my-4" />
            <div className="row row-eq-height" key="2232">
-              <div className="col-3 mb-2">
+              <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
                        <h6 className="card-title text-left text-uppercase">Total Cases</h6>
@@ -178,10 +177,10 @@ class PakistanSats extends Component {
                     </div>
                  </div>
               </div>
-              <div className="col-3 mb-2">
+              <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
-                       <h6 className="card-title text-left text-uppercase">Currently in Hospital</h6>
+                       <h6 className="card-title text-left text-uppercase">Active cases</h6>
                        <p className="card-text text-left" >
                           <CountUp end={currentActive} />
                           <small className="tx-color-03"> <span style={{color: 'red'}} >{parseFloat(currentActive*100/record.total).toFixed(2)}%</span> of total cases </small>
@@ -189,7 +188,7 @@ class PakistanSats extends Component {
                     </div>
                  </div>
               </div>
-              <div className="col-3 mb-2">
+              <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
                        <h6 className="card-title text-left text-uppercase">Recovered:</h6>
@@ -200,7 +199,7 @@ class PakistanSats extends Component {
                     </div>
                  </div>
               </div>
-              <div className="col-3 mb-2">
+              <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
                        <h6 className="card-title text-left text-uppercase">Deceased:</h6>

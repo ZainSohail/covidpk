@@ -19,7 +19,8 @@
 }
 
 .small-boxes:not(.vertical) {
-    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 25px;
 }
 .small-box {
     padding: 20px 1.25rem 20px;
@@ -29,7 +30,7 @@
     font-size: 22px;
 }
 
-.small-boxes.vertical .small-box {
+.small-boxes .small-box {
     padding-left: 0;
 }
 

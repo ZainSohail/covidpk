@@ -54,7 +54,7 @@ class Punjab extends Component {
         total_in_hospital = data.total_in_hospital;
         total_recovered = data.total_recovered;
 
-        data.countries.pakistan.provinces.punjab.stats.forEach(function(item, index) {
+        data.countries.pakistan.provinces.balochistan.stats.forEach(function(item, index) {
             s_cumulative_suspected += parseInt( item.cumulative_suspected );
             s_cumulative_tests += parseInt( item.cumulative_tests );
             s_cumulative_tests_positive += parseInt( item.cumulative_tests_positive );
@@ -155,38 +155,38 @@ class Punjab extends Component {
         <div className="col-12 col-md-6 mb-2">
             <div className="card">
                <div className="card-body">
-                    <h3 className="card-title text-left text-uppercase">Punjab</h3>
+                    <h3 className="card-title text-left text-uppercase">Balochistan</h3>
                     <div class="row small-boxes">
-                          <div class="col col-xs-6">
-                            <div class="small-box">
-                              <h4>Total Tests</h4>
-                              <CountUp end={s_cumulative_tests} />
-                            </div>
-                          </div>
-
-                          <div class="col col-xs-6">
-                            <div class=" small-box">
-                              <h4>Positive</h4>
-                              <CountUp end={s_cumulative_tests_positive} />
-                            </div>
-                          </div>
-                          <div class="col col-xs-6">
-                            <div class=" small-box">
-                              <h4>Deceased</h4>
-                              <CountUp end={s_expired} />
-                            </div>
-                          </div>
-                          <div class="col col-xs-6">
-                            <div class=" small-box">
-                              <h4>Recovered</h4>
-                              <CountUp end={s_discharged} />
-                            </div>
-                          </div>
-                    </div> 
-                    <div class="row">
-                      <div class="col-12 small-boxes vertical">
-                          <Line data={lineChart} fullWidth={true} height={100} options={options} legend={false} tooltips={false} />
+                      <div class="col col-xs-6">
+                        <div class="small-box">
+                          <h4>Total Tests</h4>
+                          <CountUp end={s_cumulative_tests} />
+                        </div>
                       </div>
+
+                      <div class="col col-xs-6">
+                        <div class=" small-box">
+                          <h4>Positive</h4>
+                          <CountUp end={s_cumulative_tests_positive} />
+                        </div>
+                      </div>
+                      <div class="col col-xs-6">
+                        <div class=" small-box">
+                          <h4>Deceased</h4>
+                          <CountUp end={s_expired} />
+                        </div>
+                      </div>
+                      <div class="col col-xs-6">
+                        <div class=" small-box">
+                          <h4>Recovered</h4>
+                          <CountUp end={s_discharged} />
+                        </div>
+                      </div>
+                    </div>  
+                    <div className="row">
+                        <div className="col-12 small-boxes vertical">
+                            <Line data={lineChart} fullWidth={true} height={100} options={options} legend={false} tooltips={false} />
+                        </div>
                     </div>
                </div>                       
             </div>

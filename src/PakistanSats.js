@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
-import {Line} from 'react-chartjs-2';
+import {Doughnut} from 'react-chartjs-2';
 
 class PakistanSats extends Component {
 
@@ -20,7 +20,7 @@ class PakistanSats extends Component {
   }
 
   async fetchStats() {
-    fetch("http://localhost:3000/data.json", {
+    fetch("https://corona.onx.digital/data.json", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -169,7 +169,7 @@ class PakistanSats extends Component {
               <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Total Cases</h3>
+                       <h6 className="card-title text-left text-uppercase">Total Cases</h6>
                        <p className="card-text text-left" >
                           <CountUp end={record.total} />
                           <small className="tx-color-03"> <span style={{color: 'red'}} >{critical[0].stat}</span> critical </small>
@@ -180,7 +180,7 @@ class PakistanSats extends Component {
               <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Active cases</h3>
+                       <h6 className="card-title text-left text-uppercase">Active cases</h6>
                        <p className="card-text text-left" >
                           <CountUp end={currentActive} />
                           <small className="tx-color-03"> <span style={{color: 'red'}} >{parseFloat(currentActive*100/record.total).toFixed(2)}%</span> of total cases </small>
@@ -191,7 +191,7 @@ class PakistanSats extends Component {
               <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Recovered</h3>
+                       <h6 className="card-title text-left text-uppercase">Recovered:</h6>
                        <p className="card-text text-left" >
                           <CountUp end={recovered[0].stat} />
                           <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(recovered[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
@@ -202,7 +202,7 @@ class PakistanSats extends Component {
               <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Deceased</h3>
+                       <h6 className="card-title text-left text-uppercase">Deceased:</h6>
                        <p className="card-text text-left" >
                           <CountUp end={deaths[0].stat} />
                           <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(deaths[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
@@ -214,68 +214,99 @@ class PakistanSats extends Component {
 
            <hr className="my-4" />
 
-           <h1 className="mb-4 text-left heading">Provinces</h1>
+           <h4 className="display-5 mb-4 text-left"> Province Data </h4>
            <div className="row" key="2232">
-                <div className="col-md-12">
+                <div className="col-md-8">
                     <div className="row">
-                        <div className="col-12 col-md-6 mb-2">
+                        <div className="col-6 mb-2">
                             <div className="card">
                                <div className="card-body">
-                                    <h3 className="card-title text-left text-uppercase">Sindh</h3>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <p className="card-text text-left" >
-                                                <CountUp end={sindh[0].stat} />
-                                                <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
-                                            </p>
-                                        </div>
-                                    </div>
+                                  <h6 className="card-title text-left text-uppercase">Sindh:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={sindh[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
                                </div>
-                               <div class="row small-boxes">
-                                    <div class="col-12">Tests</div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Perfomred</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Positive</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Negative</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                               </div> 
-                               <div class="row small-boxes">
-                                    <div class="col-12">Tests</div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Total Tests Perfomred</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Total Tests Positive</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                                    <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Total Tests Negative</h4>
-                                      <CountUp end={sindh[0].stat} />
-                                        </div>
-                                      </div>
-                               </div>                           
+                            </div>
+                        </div>
+
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Punjab:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={punjab[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(punjab[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+                        
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Balochistan:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={balochistan[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(balochistan[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Khyber Pakhtunkhwa:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={kp[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(kp[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Islamabad Capital Territory:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={ict[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(ict[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Azad Jammu and Kashmir:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={ajk[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(ajk[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h6 className="card-title text-left text-uppercase">Gilgit-Baltistan:</h6>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={gb[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(gb[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="row" key="2232">
+                     <Doughnut data={cdata} width={400} height={400} options={{ maintainAspectRatio: false }} />
+                  </div>
                 </div>
            </div>
            

@@ -10,6 +10,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import onx from './onx.png';
 
 
 function App() {
@@ -50,8 +51,7 @@ function App() {
             <hr /> 
             <div className="row">
             <div className="col-md-4 text-left">
-              <p className="lead">&copy; Copyright 2020 <br/>
-              All rights reserved.</p>
+              <p className="logo"><a href="http://onx.digital/" target="_blank"><img src={onx} alt="Logo" /></a></p>
             </div>
             <div className="col-md-8 text-right">
               <small> <p className="lead">A brief report on the current situation of COVID-19 (Corona) Virus in Pakistan. <br/> All of these statistics are generated from <a href="http://www.covid.gov.pk/"> http://www.covid.gov.pk </a></p></small>

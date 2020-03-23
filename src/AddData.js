@@ -52,7 +52,7 @@ class AddData extends Component {
 
       if( nam == 'password' ) {
 
-        if ( val == '123456789' ) {
+        if ( val === 'f_5RZ-z>P(jCD6-{' ) {
             this.setState({
                 'authenticated': true
             });

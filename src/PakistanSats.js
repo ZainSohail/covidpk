@@ -4,6 +4,12 @@ import {Line} from 'react-chartjs-2';
 import * as firebase from 'firebase';
 import Sindh from './Sindh.js';
 import Punjab from './Punjab.js';
+import Balochistan from './Balochistan.js';
+import Ajk from './Ajk.js';
+import Gb from './Gb.js';
+import Ict from './Ict.js';
+import Kpt from './Kpt.js';
+
 
 class PakistanSats extends Component {
 
@@ -137,6 +143,11 @@ class PakistanSats extends Component {
                   <div className="row">
                       <Sindh />
                       <Punjab />
+                      <Ict />
+                      <Balochistan />
+                      <Ajk />
+                      <Gb />
+                      <Kpt />
                   </div>
               </div>
           </div>

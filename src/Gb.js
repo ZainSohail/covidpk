@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import {Line, Doughnut, Pie} from 'react-chartjs-2';
 import Moment from 'moment';
 
-class Punjab extends Component {
+class Gb extends Component {
 
   constructor(props) {
     super(props);
@@ -54,7 +54,7 @@ class Punjab extends Component {
         total_in_hospital = data.total_in_hospital;
         total_recovered = data.total_recovered;
 
-        data.countries.pakistan.provinces.punjab.stats.forEach(function(item, index) {
+        data.countries.pakistan.provinces.gb.stats.forEach(function(item, index) {
             s_cumulative_suspected += parseInt( item.cumulative_suspected );
             s_cumulative_tests += parseInt( item.cumulative_tests );
             s_cumulative_tests_positive += parseInt( item.cumulative_tests_positive );
@@ -155,7 +155,7 @@ class Punjab extends Component {
         <div className="col-12 col-md-6 mb-2">
             <div className="card">
                <div className="card-body">
-                    <h3 className="card-title text-left text-uppercase">Punjab</h3>
+                    <h3 className="card-title text-left text-uppercase">Gilgit Baltistan</h3>
                     <div class="row small-boxes">
                           <div class="col col-xs-6">
                             <div class="small-box">
@@ -196,4 +196,4 @@ class Punjab extends Component {
   }
 }
 
-export default Punjab; // Don’t forget to use export default!
+export default Gb; // Don’t forget to use export default!

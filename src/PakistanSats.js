@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import {Line} from 'react-chartjs-2';
 import * as firebase from 'firebase';
+import Sindh from './Sindh.js';
+import Punjab from './Punjab.js';
 
 class PakistanSats extends Component {
 
@@ -72,7 +74,7 @@ class PakistanSats extends Component {
     } else {
       return (
         <div>
-          <div className="row row-eq-height" key="2232">
+          <div className="row row-eq-height">
               <div className="col-sm mb-2">
                  <div className="card">
                     <div className="card-body">
@@ -130,49 +132,11 @@ class PakistanSats extends Component {
 
           <hr className="my-4" />
           <h1 className="mb-4 text-left heading">Provinces</h1>
-          <div className="row" key="2232">
+          <div className="row">
               <div className="col-md-12">
                   <div className="row">
-                      <div className="col-12 col-md-6 mb-2">
-                          <div className="card">
-                             <div className="card-body">
-                                  <h3 className="card-title text-left text-uppercase">Sindh</h3>
-                                  <div class="row">
-                                      <div class="col-6">
-                                          <p className="card-text text-left" >
-                                              <CountUp end={s_cumulative_suspected} />
-                                              <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(s_cumulative_tests_positive*100/total_cases).toFixed(2)}%</span> of total </small>
-                                          </p>
-                                      </div>
-                                      <div class="col-6">
-                                          
-                                      </div>
-                                  </div>
-                             </div>
-                             <div class="row small-boxes">
-                                  <div class="col-4">
-                                    <div class="small-box">
-                                      <h4>Perfomred</h4>
-                                      <CountUp end={s_cumulative_tests} />
-                                    </div>
-                                  </div>
-
-                                  <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Positive</h4>
-                                      <CountUp end={s_cumulative_tests_positive} />
-                                    </div>
-                                  </div>
-
-                                  <div class="col-4">
-                                    <div class=" small-box">
-                                      <h4>Negative</h4>
-                                      <CountUp end={s_negative} />
-                                    </div>
-                                  </div>
-                             </div>                        
-                          </div>
-                      </div>
+                      <Sindh />
+                      <Punjab />
                   </div>
               </div>
           </div>

@@ -28,9 +28,6 @@
 .small-box > span {
     font-size: 22px;
 }
-<<<<<<< HEAD
-.small-boxes div:nth-child(2) {
-=======
 
 .small-boxes.vertical .small-box {
     padding-left: 0;
@@ -41,7 +38,6 @@
 }
 
 .small-boxes:not div:nth-child(2) {
->>>>>>> 0822f02dc34152828e09f01ebd8b2e245f8a3db7
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
 }

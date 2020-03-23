@@ -121,46 +121,39 @@ class Sindh extends Component {
             <div className="card">
                <div className="card-body">
                     <h3 className="card-title text-left text-uppercase">Sindh</h3>
-                    <div class="row">
-                        <div class="col-6 small-boxes vertical">
+                    <div class="row small-boxes">
+                          <div class="col col-xs-6">
                             <div class="small-box">
-                              <h4>Last 24 hrs</h4>
-                              <CountUp end={s_newcases} />
+                              <h4>Total Tests</h4>
+                              <CountUp end={s_cumulative_tests} />
                             </div>
+                          </div>
 
-                            <div class="small-box vertical">
-                              <h4>Suspected Patients</h4>
-                              <CountUp end={s_cumulative_suspected} />
+                          <div class="col col-xs-6">
+                            <div class=" small-box">
+                              <h4>Positive</h4>
+                              <CountUp end={s_cumulative_tests_positive} />
                             </div>
-                              
+                          </div>
+                          <div class="col col-xs-6">
+                            <div class=" small-box">
+                              <h4>Deceased</h4>
+                              <CountUp end={s_expired} />
+                            </div>
+                          </div>
+                          <div class="col col-xs-6">
+                            <div class=" small-box">
+                              <h4>Recovered</h4>
+                              <CountUp end={s_discharged} />
+                            </div>
+                          </div>
+                      </div> 
+                      <div class="row">
+                        <div class="col-12 small-boxes vertical">
+                            <Line data={lineChart} fullWidth={true} height={100} options={options} legend={false} tooltips={false} />
                         </div>
-                        <div class="col-6">
-                             <Line data={lineChart} fullWidth={true} height={200} options={options} legend={false} tooltips={false} />
-                        </div>
                     </div>
-               </div>
-               <div class="row small-boxes">
-                    <div class="col-4">
-                      <div class="small-box">
-                        <h4>Total Tests</h4>
-                        <CountUp end={s_cumulative_tests} />
-                      </div>
-                    </div>
-
-                    <div class="col-4">
-                      <div class=" small-box">
-                        <h4>Positive</h4>
-                        <CountUp end={s_cumulative_tests_positive} />
-                      </div>
-                    </div>
-
-                    <div class="col-4">
-                      <div class=" small-box">
-                        <h4>Negative</h4>
-                        <CountUp end={s_negative} />
-                      </div>
-                    </div>
-               </div>                        
+               </div>                       
             </div>
         </div>
       );

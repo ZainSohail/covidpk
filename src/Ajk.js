@@ -48,6 +48,15 @@ class Ajk extends Component {
     var s_negative = 0;
     var labels = [], cases = [];
 
+    //latest 
+    var sl_cumulative_suspected = 0;
+    var sl_cumulative_tests = 0;
+    var sl_cumulative_tests_positive = 0;
+    var sl_discharged = 0;
+    var sl_expired = 0;
+    var sl_newcases = 0;
+    var sl_still_admitted = 0;
+
     if ( data !== null ) {
         total_cases = data.total_cases;
         total_deaths = data.total_deaths;
@@ -61,6 +70,15 @@ class Ajk extends Component {
             s_discharged += parseInt( item.discharged );
             s_newcases += parseInt( item.newcases );
             s_still_admitted += parseInt( item.still_admitted );
+
+            //latest
+            sl_cumulative_suspected = parseInt( item.cumulative_suspected );
+            sl_cumulative_tests = parseInt( item.cumulative_tests );
+            sl_cumulative_tests_positive = parseInt( item.cumulative_tests_positive );
+            sl_discharged = parseInt( item.discharged );
+            sl_newcases = parseInt( item.newcases );
+            sl_still_admitted = parseInt( item.still_admitted );
+            
             labels.push(Moment(item.date).format('D MMM'));
             cases.push(s_cumulative_tests_positive);
         });
@@ -161,6 +179,7 @@ class Ajk extends Component {
                             <div class="small-box">
                               <h4>Total Tests</h4>
                               <CountUp end={s_cumulative_tests} />
+                              <small className="tx-color-03"> <span style={{color: 'green'}} >+<CountUp end={sl_cumulative_tests} /></span> in 24h </small>
                             </div>
                           </div>
 
@@ -168,18 +187,21 @@ class Ajk extends Component {
                             <div class=" small-box">
                               <h4>Positive</h4>
                               <CountUp end={s_cumulative_tests_positive} />
+                              <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_cumulative_tests_positive} /></span> in 24h </small>
                             </div>
                           </div>
                           <div class="col col-xs-6">
                             <div class=" small-box">
                               <h4>Deceased</h4>
                               <CountUp end={s_expired} />
+                              <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_expired} /></span> in 24h </small>
                             </div>
                           </div>
                           <div class="col col-xs-6">
                             <div class=" small-box">
                               <h4>Recovered</h4>
                               <CountUp end={s_discharged} />
+                              <small className="tx-color-03"> <span style={{color: 'green'}} >+<CountUp end={sl_discharged} /></span> in 24h </small>
                             </div>
                           </div>
                     </div> 

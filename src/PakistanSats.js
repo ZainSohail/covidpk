@@ -87,6 +87,7 @@ class PakistanSats extends Component {
                        <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
                        <p className="card-text text-left" >
                           <CountUp end={total_cases} />
+                          <small className="tx-color-03"> <span style={{color: 'red'}} >+3</span> in 24h </small>
                        </p>
                     </div>
                  </div>
@@ -97,6 +98,7 @@ class PakistanSats extends Component {
                        <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
                        <p className="card-text text-left" >
                           <CountUp end={total_tests_performed} />
+                          <small className="tx-color-03"> <span style={{color: 'red'}} >+3</span> in 24h </small>
                        </p>
                     </div>
                  </div>
@@ -107,7 +109,7 @@ class PakistanSats extends Component {
                        <h3 className="card-title text-left text-uppercase">In hospital</h3>
                        <p className="card-text text-left" >
                           <CountUp end={total_in_hospital } />
-                          <small className="tx-color-03"> <span style={{color: 'red'}} >{parseFloat(total_in_hospital*100/total_cases).toFixed(2)}%</span> of total cases </small>
+                          <small className="tx-color-03"> <span style={{color: 'red'}} >+3</span> in 24h </small>
                        </p>
                     </div>
                  </div>
@@ -118,7 +120,7 @@ class PakistanSats extends Component {
                        <h3 className="card-title text-left text-uppercase">Recovered</h3>
                        <p className="card-text text-left" >
                           <CountUp end={total_recovered} />
-                          <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(total_recovered*100/total_cases).toFixed(2)}%</span> of total </small>
+                          <small className="tx-color-03"> <span style={{color: 'red'}} >+3</span> in 24h </small>
                        </p>
                     </div>
                  </div>
@@ -129,7 +131,7 @@ class PakistanSats extends Component {
                        <h3 className="card-title text-left text-uppercase">Deceased</h3>
                        <p className="card-text text-left" >
                           <CountUp end={total_deaths} />
-                          <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(total_deaths*100/total_cases).toFixed(2)}%</span> of total </small>
+                          <small className="tx-color-03"> <span style={{color: 'red'}} >+3</span> in 24h </small>
                        </p>
                     </div>
                  </div>

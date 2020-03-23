@@ -26,8 +26,9 @@
   font-size: 25px;
 }
 
-.card-text label {
-  font-size: 15px;
+.card-body label {
+      font-size: 11px;
+    font-weight: bold;
 }
 
 .tx-color-03 {

@@ -58,24 +58,24 @@ class Ict extends Component {
     var sl_still_admitted = 0;
 
     if ( data !== null ) {
+
         total_cases = data.total_cases;
         total_deaths = data.total_deaths;
         total_in_hospital = data.total_in_hospital;
         total_recovered = data.total_recovered;
         var stats = data.countries.pakistan.provinces.ict.stats,
-            lastStat = stats.pop(),
             maxStats = (stats.length - 1),
             lastResult = stats[maxStats],
             secondLastResult = stats[(maxStats - 1)];
 
         // get latest stat
-        s_cumulative_suspected = parseInt( lastStat.cumulative_suspected );
-        s_cumulative_tests = parseInt( lastStat.cumulative_tests );
-        s_cumulative_tests_positive = parseInt( lastStat.cumulative_tests_positive );
-        s_discharged = parseInt( lastStat.discharged );
-        s_expired = parseInt( lastStat.expired );
-        s_newcases = parseInt( lastStat.newcases );
-        s_still_admitted = parseInt( lastStat.still_admitted );
+        s_cumulative_suspected = parseInt( lastResult.cumulative_suspected );
+        s_cumulative_tests = parseInt( lastResult.cumulative_tests );
+        s_cumulative_tests_positive = parseInt( lastResult.cumulative_tests_positive );
+        s_discharged = parseInt( lastResult.discharged );
+        s_expired = parseInt( lastResult.expired );
+        s_newcases = parseInt( lastResult.newcases );
+        s_still_admitted = parseInt( lastResult.still_admitted );
 
 
         // last 24hr report

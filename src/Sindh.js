@@ -62,27 +62,33 @@ class Sindh extends Component {
         total_deaths = data.total_deaths;
         total_in_hospital = data.total_in_hospital;
         total_recovered = data.total_recovered;
+        var stats = data.countries.pakistan.provinces.sindh.stats,
+            lastStat = stats.pop(),
+            maxStats = (stats.length - 1),
+            lastResult = stats[maxStats],
+            secondLastResult = stats[(maxStats - 1)];
+
+        // get latest stat
+        s_cumulative_suspected = parseInt( lastStat.cumulative_suspected );
+        s_cumulative_tests = parseInt( lastStat.cumulative_tests );
+        s_cumulative_tests_positive = parseInt( lastStat.cumulative_tests_positive );
+        s_discharged = parseInt( lastStat.discharged );
+        s_expired = parseInt( lastStat.expired );
+        s_newcases = parseInt( lastStat.newcases );
+        s_still_admitted = parseInt( lastStat.still_admitted );
+
+
+        // last 24hr report
+        sl_cumulative_suspected = parseInt(lastResult.cumulative_suspected) - parseInt(secondLastResult.cumulative_suspected);
+        sl_cumulative_tests = parseInt(lastResult.cumulative_tests) - parseInt(secondLastResult.cumulative_tests);
+        sl_cumulative_tests_positive = parseInt(lastResult.cumulative_tests_positive) - parseInt(secondLastResult.cumulative_tests_positive);
+        sl_discharged = parseInt(lastResult.discharged) - parseInt(secondLastResult.discharged);
+        sl_expired = parseInt(lastResult.expired) - parseInt(secondLastResult.expired);
 
         data.countries.pakistan.provinces.sindh.stats.forEach(function(item, index) {
-            s_cumulative_suspected += parseInt( item.cumulative_suspected );
-            s_cumulative_tests += parseInt( item.cumulative_tests );
-            s_cumulative_tests_positive += parseInt( item.cumulative_tests_positive );
-            s_discharged += parseInt( item.discharged );
-            s_newcases += parseInt( item.newcases );
-            s_still_admitted += parseInt( item.still_admitted );
             labels.push(Moment(item.date).format('D MMM'));
-            cases.push(s_cumulative_tests_positive);
-
-            //latest
-            sl_cumulative_suspected = parseInt( item.cumulative_suspected );
-            sl_cumulative_tests = parseInt( item.cumulative_tests );
-            sl_cumulative_tests_positive = parseInt( item.cumulative_tests_positive );
-            sl_discharged = parseInt( item.discharged );
-            sl_newcases = parseInt( item.newcases );
-            sl_still_admitted = parseInt( item.still_admitted );
+            cases.push(item.cumulative_tests_positive);
         });
-
-        s_negative = s_cumulative_tests - s_cumulative_tests_positive;
 
         var lineChart = {
           labels: labels,

@@ -66,7 +66,7 @@ class AddData extends Component {
 
       } else {
 
-        if ( ( event.target.value >= 0 ) && ( event.target.value < 1000 ) ) {
+        if ( ( event.target.value >= 0 ) && ( event.target.value < 10000 ) ) {
         
             var s = this.state[province];
             s[nam] = val;

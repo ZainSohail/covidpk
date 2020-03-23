@@ -14,41 +14,9 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    this.intervalId = setInterval(() => this.fetchStats(), 5000);
-    this.fetchStats();
-    
-  }
-
-  async fetchStats() {
-    fetch("http://localhost:3000/data.json", {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(res => res.json())
-    .then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          data: result,
-        });
-    },
-    // Note: it's important to handle errors here
-    // instead of a catch() block so that we don't swallow
-    // exceptions from actual bugs in components.
-    (error) => {
-      console.log(error);
-      /*this.setState({
+    this.setState({
         isLoaded: true,
-        error
-      });*/
-    }
-    )
-  }
-
-  componentWillUnmount() {
-      clearInterval(this.intervalId);
+    });
   }
 
   render() {
@@ -73,7 +41,7 @@ class Header extends Component {
                     <div className="col-md-6 text-right">
                         <p class="lead mb-0">
                             <small class="tx-color-04">
-                                Last Updated: {Moment(record.date).format('Do MMMM HH:mm a')}
+                                Last Updated: 23 March 2020
                             </small>
                         </p>
                     </div>

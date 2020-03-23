@@ -54,8 +54,10 @@ function App() {
               <p className="logo"><a href="http://onx.digital/" target="_blank"><img src={onx} alt="Logo" /></a></p>
             </div>
             <div className="col-md-8 text-right">
-              <small> <p className="lead">A brief report on the current situation of COVID-19 (Corona) Virus in Pakistan. <br/> All of these statistics are generated from <a href="http://www.covid.gov.pk/"> http://www.covid.gov.pk </a></p></small>
-              </div> 
+                <small> <p className="lead">A brief report on the current situation of COVID-19 (Corona) Virus in Pakistan. <br/> All of these statistics are generated from <a href="https://www.nih.org.pk" target="_blank"> https://www.nih.org.pk </a>. <br /> Report a problem <a href="mailto: contact@covid19.com.pk" target="_blan"k>contact@covid19.com.pk</a></p>
+
+                </small>
+            </div> 
             </div>
           </footer>
         </div>

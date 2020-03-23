@@ -9,6 +9,7 @@ import Ajk from './Ajk.js';
 import Gb from './Gb.js';
 import Ict from './Ict.js';
 import Kpt from './Kpt.js';
+import { FaArrowUp } from 'react-icons/fa';
 
 
 class PakistanSats extends Component {
@@ -59,6 +60,8 @@ class PakistanSats extends Component {
     var l_total_deaths = 0;
     var l_total_in_hospital = 0;
     var l_total_recovered = 0;
+
+    var growthRate = 0;
 
     if ( data !== null ) {
         
@@ -150,6 +153,28 @@ class PakistanSats extends Component {
                                  + (parseInt(gbLastStat.discharged) - parseInt(gbSecondLastResult.discharged))
                                  + (parseInt(kptLastStat.discharged) - parseInt(kptSecondLastResult.discharged));
 
+
+            // growth rate
+
+            l_total_cases = (parseInt(sindhLastStat.cumulative_tests_positive) - parseInt(sindhSecondLastResult.cumulative_tests_positive))
+                             + (parseInt(punjabLastStat.cumulative_tests_positive) - parseInt(punjabSecondLastResult.cumulative_tests_positive))
+                             + (parseInt(ictLastStat.cumulative_tests_positive) - parseInt(ictSecondLastResult.cumulative_tests_positive)) 
+                             + (parseInt(ajkLastStat.cumulative_tests_positive) - parseInt(ajkSecondLastResult.cumulative_tests_positive))
+                             + (parseInt(balochistanLastStat.cumulative_tests_positive) - parseInt(balochistanSecondLastResult.cumulative_tests_positive))
+                             + (parseInt(gbLastStat.cumulative_tests_positive) - parseInt(gbSecondLastResult.cumulative_tests_positive))
+                             + (parseInt(kptLastStat.cumulative_tests_positive) - parseInt(kptSecondLastResult.cumulative_tests_positive));
+
+            var ev = total_cases,
+                bv =  parseInt(sindhStat[0].cumulative_tests_positive) + 
+                      parseInt(punjabStat[0].cumulative_tests_positive) + 
+                      parseInt(ictStat[0].cumulative_tests_positive) + 
+                      parseInt(ajkStat[0].cumulative_tests_positive) + 
+                      parseInt(balochistanStat[0].cumulative_tests_positive) + 
+                      parseInt(gbStat[0].cumulative_tests_positive) + 
+                      parseInt(kptStat[0].cumulative_tests_positive);
+
+            growthRate = parseFloat((ev - bv) / bv).toFixed(2);
+
     }
 
     if (error) {
@@ -160,61 +185,79 @@ class PakistanSats extends Component {
       return (
         <div>
           <div className="row row-eq-height">
-              <div className="col-sm mb-2">
-                 <div className="card">
-                    <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
-                       <p className="card-text text-left" >
-                          <CountUp end={total_cases} />
-                          <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
-                       </p>
-                    </div>
-                 </div>
+            <div className="col-8">
+              <div className="row row-eq-height">
+                <div className="col-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_cases} />
+                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div className="col-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_tests_performed} />
+                            <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_tests_performed}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div className="col-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">In hospital</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_in_hospital } />
+                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_in_hospital}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div className="col-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">Recovered</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_recovered} />
+                            <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_recovered}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div className="col-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">Deceased</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_deaths} />
+                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_deaths}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
               </div>
-              <div className="col-sm mb-2">
-                 <div className="card">
-                    <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
-                       <p className="card-text text-left" >
-                          <CountUp end={total_tests_performed} />
-                          <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_tests_performed}</span> in 24h </small>
-                       </p>
-                    </div>
-                 </div>
+            </div>
+            <div className="col-4">
+              <div className="row row-eq-height">
+                <div className="col-12 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body growth_rate">
+                         <h3 className="card-title text-left text-center">Growth Rate</h3>
+                         <p className="card-text text-center" >
+                            <FaArrowUp style={{fontSize: "0.3em"}}/> {growthRate}
+                         </p>
+                      </div>
+                   </div>
+                </div>
               </div>
-              <div className="col-sm mb-2">
-                 <div className="card">
-                    <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">In hospital</h3>
-                       <p className="card-text text-left" >
-                          <CountUp end={total_in_hospital } />
-                          <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_in_hospital}</span> in 24h </small>
-                       </p>
-                    </div>
-                 </div>
-              </div>
-              <div className="col-sm mb-2">
-                 <div className="card">
-                    <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Recovered</h3>
-                       <p className="card-text text-left" >
-                          <CountUp end={total_recovered} />
-                          <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_recovered}</span> in 24h </small>
-                       </p>
-                    </div>
-                 </div>
-              </div>
-              <div className="col-sm mb-2">
-                 <div className="card">
-                    <div className="card-body">
-                       <h3 className="card-title text-left text-uppercase">Deceased</h3>
-                       <p className="card-text text-left" >
-                          <CountUp end={total_deaths} />
-                          <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_deaths}</span> in 24h </small>
-                       </p>
-                    </div>
-                 </div>
-              </div>
+            </div>
           </div>
 
           <hr className="my-4" />

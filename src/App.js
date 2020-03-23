@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
 
-    <div className="jumbotron jumbotron-fluid " style={{"margin-bottom": "0"}} >
+    <div className="jumbotron jumbotron-fluid " style={{"marginBottom": "0"}} >
       <div className="container">
           <Header />
 

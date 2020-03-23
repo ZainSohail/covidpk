@@ -153,6 +153,15 @@ class PakistanSats extends Component {
             }]
           };
 
+        var linedata = {
+            labels: [
+                'day', 'cases'
+            ],
+            datasets: [{
+                data: [111, 222]
+            }]
+        };
+
           
         }
 
@@ -218,7 +227,7 @@ class PakistanSats extends Component {
            <div className="row" key="2232">
                 <div className="col-md-12">
                     <div className="row">
-                        <div className="col-12 col-md-6 mb-2">
+                        <div className="col-xs-12 col-md-6 mb-2">
                             <div className="card">
                                <div className="card-body">
                                     <h3 className="card-title text-left text-uppercase">Sindh</h3>
@@ -227,6 +236,20 @@ class PakistanSats extends Component {
                                             <p className="card-text text-left" >
                                                 <CountUp end={sindh[0].stat} />
                                                 <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                            </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p className="card-text text-right" >
+                                                <Line 
+                                                    data={linedata}
+                                                    options={{
+                                                        title:{
+                                                          display:false
+                                                        },
+                                                        legend:{
+                                                          display:false
+                                                        }
+                                                    }} />
                                             </p>
                                         </div>
                                     </div>
@@ -247,32 +270,150 @@ class PakistanSats extends Component {
                                       </div>
                                     <div class="col-4">
                                     <div class=" small-box">
-                                      <h4>Negative</h4>
+                                      <h4>Positive</h4>
                                       <CountUp end={sindh[0].stat} />
                                         </div>
                                       </div>
                                </div> 
                                <div class="row small-boxes">
-                                    <div class="col-12">Tests</div>
+                                    <div class="col-12">Hospital</div>
                                     <div class="col-4">
                                     <div class=" small-box">
-                                      <h4>Total Tests Perfomred</h4>
+                                      <h4>Admitted</h4>
                                       <CountUp end={sindh[0].stat} />
                                         </div>
                                       </div>
                                     <div class="col-4">
                                     <div class=" small-box">
-                                      <h4>Total Tests Positive</h4>
+                                      <h4>Recovered</h4>
                                       <CountUp end={sindh[0].stat} />
                                         </div>
                                       </div>
                                     <div class="col-4">
                                     <div class=" small-box">
-                                      <h4>Total Tests Negative</h4>
+                                      <h4>Disceased</h4>
                                       <CountUp end={sindh[0].stat} />
                                         </div>
                                       </div>
-                               </div>                           
+                               </div>                             
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Punjab</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={punjab[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(punjab[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                               <div class="row small-boxes">
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Tests</span> Perfomred</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Tests</span> Positive</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Tests</span> Positive</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                               </div> 
+                               <div class="row small-boxes">
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Hospital</span> Admitted</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Hospital</span> Recovered</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                                    <div class="col-4">
+                                    <div class=" small-box">
+                                      <h4><span>Hospital</span> Disceased</h4>
+                                      <CountUp end={sindh[0].stat} />
+                                       <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(sindh[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                        </div>
+                                      </div>
+                               </div>       
+                            </div>
+                        </div>
+                        
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Balochistan</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={balochistan[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(balochistan[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Khyber Pakhtunkhwa</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={kp[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(kp[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Islamabad Capital Territory</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={ict[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(ict[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Azad Jammu and Kashmir</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={ajk[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(ajk[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
+                            </div>
+                        </div>
+
+                        <div className="col-xs-12 col-md-6 mb-2">
+                            <div className="card">
+                               <div className="card-body">
+                                  <h3 className="card-title text-left text-uppercase">Gilgit-Baltistan</h3>
+                                  <p className="card-text text-left" >
+                                     <CountUp end={gb[0].stat} />
+                                     <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(gb[0].stat*100/record.total).toFixed(2)}%</span> of total </small>
+                                  </p>
+                               </div>
                             </div>
                         </div>
                     </div>

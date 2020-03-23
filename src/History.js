@@ -19,7 +19,7 @@ class History extends Component {
   }
 
   async fetchStats() {
-    fetch("https://corona.onx.digital/data.json", {
+    fetch("D:/Business/covid/covidpk-master/covidpk-master/data.json", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'

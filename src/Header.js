@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import {Doughnut} from 'react-chartjs-2';
 import Moment from 'moment';
+import { ReactComponent as Flag } from './flag.svg';
 
 class Header extends Component {
 
@@ -21,7 +22,7 @@ class Header extends Component {
   }
 
   async fetchStats() {
-    fetch("https://corona.onx.digital/data.json", {
+    fetch("http://localhost:3000/data.json", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -66,16 +67,21 @@ class Header extends Component {
     } else {
       return (
         <div>
-        <header>
-            <div className="row">
-                <div className="col-md-6 text-left"><p class="lead"><strong>COVID-19 in Pakistan</strong></p> </div>
-                <div className="col-md-6 text-right">
-                    <p class="lead mb-0"><small class="tx-color-03"><strong>Last Updated:</strong></small></p>
-                    <p class="lead"><small class="tx-color-03">{Moment(record.date).format('Do MMMM HH:mm a')}</small></p>
+            <header>
+                <div className="row">
+                    <div className="col-md-6 text-left">
+                        <h1 class="heading">COVID-19 in Pakistan<span class="flag"><Flag/></span></h1>
+                    </div>
+                    <div className="col-md-6 text-right">
+                        <p class="lead mb-0">
+                            <small class="tx-color-04">
+                                Last Updated: {Moment(record.date).format('Do MMMM HH:mm a')}
+                            </small>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <hr />
-        </header>
+                <hr />
+            </header>
         </div>
       );
     }

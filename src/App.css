@@ -50,9 +50,23 @@ h4 {
   color: #01411C;
 }
 
+.card-title.title-bg {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.col-form-label {
+  font-size: 15px;
+}
+
 .card-text {
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
+}
+
+.card-body label {
+      font-size: 11px;
+    font-weight: bold;
 }
 
 .tx-color-03 {
@@ -97,6 +111,10 @@ html,body {
 #root, .App,
 .jumbotron {
   height: 100%;
+}
+
+.App {
+  text-align: left;
 }
 
 @media only screen and (max-width: 480px) {

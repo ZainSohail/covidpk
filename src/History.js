@@ -54,7 +54,7 @@ class History extends Component {
           var cdate = new Date(index.date);
           var pdate = new Date(cdata[(i > 0 ? prev : 0)].date);
           
-          return cdate.getTime() <= pdate.getTime();
+          return cdate.getTime() >= pdate.getTime();
     });
 
     var labels = [], cases = [];
@@ -62,7 +62,7 @@ class History extends Component {
     if ( dateData.length !== undefined ) {
 
       for (let i = 0; i < dateData.length; i++) {
-        labels.push(Moment(dateData[i].date).format('D MMM HH:mm a'));
+        labels.push(Moment(dateData[i].date).format('D MMM HH:mm'));
         cases.push(dateData[i].total.replace(",", ""));
       }
 

@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import CountUp from 'react-countup';
-import {Doughnut} from 'react-chartjs-2';
 import Moment from 'moment';
 import { ReactComponent as Flag } from './flag.svg';
 

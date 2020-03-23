@@ -17,7 +17,8 @@
   font-weight: bold;
   color: #01411C;
 }
-.small-boxes {
+
+.small-boxes:not(.vertical) {
     border-top: 1px solid #eee;
 }
 .small-box {
@@ -27,10 +28,20 @@
 .small-box > span {
     font-size: 22px;
 }
-.small-boxes div:nth-child(3) {
+
+.small-boxes.vertical .small-box {
+    padding-left: 0;
+}
+
+.small-boxes.vertical .small-box:first-child {
+    border-bottom: 1px solid #eee;
+}
+
+.small-boxes:not div:nth-child(2) {
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
 }
+
 .small-boxes .col-12 {
     padding: 10px 2.2rem;
     text-transform: uppercase;
@@ -41,7 +52,6 @@ h4 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 12px !important;
     color: #01411C;
-    word-spacing: 999rem;
 }
 
 .heading {

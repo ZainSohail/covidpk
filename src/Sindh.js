@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CountUp from 'react-countup';
 import * as firebase from 'firebase';
+import {Line} from 'react-chartjs-2';
+import Moment from 'moment';
 
 class Sindh extends Component {
 
@@ -28,6 +30,7 @@ class Sindh extends Component {
   render() {
     const { error, isLoaded, data } = this.state;
 
+    var options = '';
     var total_cases = 0;
     var total_deaths = 0;
     var total_in_hospital = 0;
@@ -43,6 +46,7 @@ class Sindh extends Component {
     var s_newcases = 0;
     var s_still_admitted = 0;
     var s_negative = 0;
+    var labels = [], cases = [];
 
     if ( data !== null ) {
         total_cases = data.total_cases;
@@ -57,10 +61,54 @@ class Sindh extends Component {
             s_discharged += parseInt( item.discharged );
             s_newcases += parseInt( item.newcases );
             s_still_admitted += parseInt( item.still_admitted );
+            labels.push(Moment(item.date).format('D MMM'));
+            cases.push(s_cumulative_tests_positive);
         });
-
         s_negative = s_cumulative_tests - s_cumulative_tests_positive;
-        total_tests_performed = s_cumulative_tests;
+
+        var lineChart = {
+          labels: labels,
+          datasets: [{
+            label: "Total Cases",
+            borderColor: "#000",
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: 'rgba(75,192,192,0.1)',
+            borderColor: 'rgba(75,192,192,1)',
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: 'rgba(75,192,192,0.8)',
+            pointBackgroundColor: '#fff',
+            pointBorderWidth: 5,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+            pointHoverBorderColor: 'rgba(220,220,220,1)',
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            steppedLine: false,
+            data: cases
+          }],
+        }
+
+        var options = {
+          maintainAspectRatio: true,
+          fullWidth: true,
+          scales: {
+          yAxes: [
+            {
+              display: false, // this will hide vertical lines
+            },
+          ],
+          xAxes: [
+            {
+              display: true, // this will hide vertical lines
+            },
+          ],
+        },
+        }
     }
 
     if (error) {
@@ -74,22 +122,28 @@ class Sindh extends Component {
                <div className="card-body">
                     <h3 className="card-title text-left text-uppercase">Sindh</h3>
                     <div class="row">
-                        <div class="col-6">
-                            <p className="card-text text-left" >
-                                <CountUp end={s_cumulative_tests_positive} />
-                                <small className="tx-color-03"> <span style={{color: 'green'}} >{parseFloat(s_cumulative_tests_positive*100/total_cases).toFixed(2)}%</span> of total </small>
-                            </p>
+                        <div class="col-6 small-boxes vertical">
+                            <div class="small-box">
+                              <h4>Last 24 hrs</h4>
+                              <CountUp end={s_newcases} />
+                            </div>
+
+                            <div class="small-box vertical">
+                              <h4>Suspected Patients</h4>
+                              <CountUp end={s_cumulative_suspected} />
+                            </div>
+                              
                         </div>
                         <div class="col-6">
-                            
+                             <Line data={lineChart} fullWidth={true} height={200} options={options} legend={false} tooltips={false} />
                         </div>
                     </div>
                </div>
                <div class="row small-boxes">
                     <div class="col-4">
                       <div class="small-box">
-                        <h4>Suspected</h4>
-                        <CountUp end={s_cumulative_suspected} />
+                        <h4>Total Tests</h4>
+                        <CountUp end={s_cumulative_tests} />
                       </div>
                     </div>
 

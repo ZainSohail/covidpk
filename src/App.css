@@ -27,7 +27,7 @@
 .small-box > span {
     font-size: 22px;
 }
-.small-boxes div:nth-child(3) {
+.small-boxes div:nth-child(2) {
     border-left: 1px solid #eee;
     border-right: 1px solid #eee;
 }
@@ -41,13 +41,19 @@ h4 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 12px !important;
     color: #01411C;
-    word-spacing: 999rem;
 }
 
 .heading {
   font-size: 1.25rem;
   font-weight: 400;
   color: #01411C;
+}
+
+.logo img {
+  max-width: 100%;
+}
+.logo {
+  width: 100px;
 }
 
 .card-title.title-bg {

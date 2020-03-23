@@ -185,9 +185,9 @@ class PakistanSats extends Component {
       return (
         <div>
           <div className="row row-eq-height">
-            <div className="col-8">
+            <div className="col-md-8 col-xs-12">
               <div className="row row-eq-height">
-                <div className="col-4 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
                          <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
@@ -198,7 +198,7 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-                <div className="col-4 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
                          <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
@@ -209,7 +209,7 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-                <div className="col-4 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
                          <h3 className="card-title text-left text-uppercase">In hospital</h3>
@@ -220,7 +220,7 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-                <div className="col-4 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
                          <h3 className="card-title text-left text-uppercase">Recovered</h3>
@@ -231,7 +231,7 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-                <div className="col-4 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
                          <h3 className="card-title text-left text-uppercase">Deceased</h3>
@@ -244,7 +244,7 @@ class PakistanSats extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-4">
+            <div className="col-md-4 col-xs-12">
               <div className="row row-eq-height">
                 <div className="col-12 col-xs-12 mb-4">
                    <div className="card">

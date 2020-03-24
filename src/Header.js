@@ -41,7 +41,7 @@ class Header extends Component {
                     <div className="col-md-6 text-right">
                         <p class="lead mb-0">
                             <small class="tx-color-04">
-                                Last Updated: 23 March 2020
+                                Last Updated: 24 March 2020
                             </small>
                         </p>
                     </div>

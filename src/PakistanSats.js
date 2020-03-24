@@ -185,19 +185,9 @@ class PakistanSats extends Component {
       return (
         <div>
           <div className="row row-eq-height">
-            <div className="col-md-8 col-xs-12">
+            <div className="col-md-12 col-xs-12">
               <div className="row row-eq-height">
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_cases} />
-                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
+
                 <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body">
@@ -205,6 +195,17 @@ class PakistanSats extends Component {
                          <p className="card-text text-left" >
                             <CountUp end={total_tests_performed} />
                             <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_tests_performed}</span> in 24h </small>
+                         </p>
+                      </div>
+                   </div>
+                </div>
+                <div className="col-md-4 col-xs-12 mb-4">
+                   <div className="card">
+                      <div className="card-body">
+                         <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
+                         <p className="card-text text-left" >
+                            <CountUp end={total_cases} />
+                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
                          </p>
                       </div>
                    </div>
@@ -242,16 +243,12 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-              </div>
-            </div>
-            <div className="col-md-4 col-xs-12">
-              <div className="row row-eq-height">
-                <div className="col-12 col-xs-12 mb-4">
+                <div className="col-md-4 col-xs-12 mb-4">
                    <div className="card">
                       <div className="card-body growth_rate">
-                         <h3 className="card-title text-left text-center">Growth Rate</h3>
-                         <p className="card-text text-center" >
-                            <FaArrowUp style={{fontSize: "0.3em"}}/> {growthRate}
+                         <h3 className="card-title text-left text-uppercase">Growth Rate</h3>
+                         <p className="card-text" >
+                            {growthRate} <FaArrowUp style={{fontSize: "0.4em"}}/> 
                          </p>
                       </div>
                    </div>

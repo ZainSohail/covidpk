@@ -2,14 +2,7 @@
   text-align: center;
 }
 
-.card-body.growth_rate h3 {
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
 .card-body.growth_rate p {
-    font-size: 50px;
-    padding: 20px;
     color: red;
 }
 
@@ -91,6 +84,7 @@ h4 {
 .card-text {
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
+  line-height: 20px;
 }
 
 .card-body label {
@@ -158,6 +152,12 @@ html,body {
   }
 }
 
+@media (min-width: 576px) {
+    .jumbotron {
+        padding: 1.5rem 2rem;
+    }
+}
+
 
 
 
@@ -199,4 +199,27 @@ header .lead {
 
 footer p.lead {
   font-size: .8rem;
+}
+
+.card-text .tx-color-03 {
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: 9px;
+}
+
+.card-text .tx-color-03 {
+    font-size: 10px;
+    letter-spacing: 0;
+}
+.card-text .tx-color-03 span {
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+.small-box .tx-color-03 span {
+    font-size: 12px;
+}
+
+.small-box .tx-color-03 {
+    font-size: 10px;
 }

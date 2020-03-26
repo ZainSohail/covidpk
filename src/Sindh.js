@@ -3,6 +3,8 @@ import CountUp from 'react-countup';
 import * as firebase from 'firebase';
 import {Line} from 'react-chartjs-2';
 import Moment from 'moment';
+import { FaCircle } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 class Sindh extends Component {
 
@@ -46,7 +48,7 @@ class Sindh extends Component {
     var s_newcases = 0;
     var s_still_admitted = 0;
     var s_negative = 0;
-    var labels = [], cases = [];
+    var labels = [], cases = [], cumulative_tests = [], expired = [],  discharged = [];
 
     //latest 
     var sl_cumulative_suspected = 0;
@@ -87,33 +89,83 @@ class Sindh extends Component {
         data.countries.pakistan.provinces.sindh.stats.forEach(function(item, index) {
             labels.push(Moment(item.date).format('D MMM'));
             cases.push(item.cumulative_tests_positive);
+            discharged.push(item.discharged);
+            expired.push(item.expired);
         });
 
         var lineChart = {
           labels: labels,
-          datasets: [{
-            label: "Total Cases",
-            borderColor: "#000",
-            fill: true,
-            lineTension: 0.1,
-            backgroundColor: 'rgba(75,192,192,0.1)',
-            borderColor: 'rgba(75,192,192,1)',
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,0.8)',
-            pointBackgroundColor: '#fff',
-            pointBorderWidth: 5,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-            pointHoverBorderColor: 'rgba(220,220,220,1)',
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            steppedLine: false,
-            data: cases
-          }],
+          datasets: [
+            {
+              label: "Total Cases",
+              borderColor: "#000",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: 'rgba(75,192,192,0.1)',
+              borderColor: 'rgba(75,192,192,1)',
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: 'rgba(75,192,192,1)',
+              pointBackgroundColor: 'rgba(75,192,192,1)',
+              pointBorderWidth: 5,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+              pointHoverBorderColor: 'rgba(220,220,220,1)',
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              steppedLine: false,
+              data: cases
+            },
+            {
+              label: "Deceased",
+              borderColor: "#000",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: 'rgba(220,20,60,0.1)',
+              borderColor: 'rgba(220,20,60,1)',
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: 'rgba(220,20,60,1)',
+              pointBackgroundColor: 'rgba(220,20,60,1)',
+              pointBorderWidth: 5,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: 'rgba(220,20,60,1)',
+              pointHoverBorderColor: 'rgba(220,20,60,1)',
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              steppedLine: false,
+              data: expired
+            },
+            {
+              label: "Recovered",
+              borderColor: "#000",
+              fill: true,
+              lineTension: 0.1,
+              backgroundColor: 'rgba(87,229,74,0.1)',
+              borderColor: 'rgba(87,229,74,1)',
+              borderCapStyle: 'butt',
+              borderDash: [],
+              borderDashOffset: 0.0,
+              borderJoinStyle: 'miter',
+              pointBorderColor: 'rgba(87,229,74,1)',
+              pointBackgroundColor: 'rgba(87,229,74,1)',
+              pointBorderWidth: 5,
+              pointHoverRadius: 5,
+              pointHoverBackgroundColor: 'rgba(87,229,74,1)',
+              pointHoverBorderColor: 'rgba(87,229,74,1)',
+              pointHoverBorderWidth: 2,
+              pointRadius: 1,
+              pointHitRadius: 10,
+              steppedLine: false,
+              data: discharged
+            }
+          ],
         }
 
         var options = {
@@ -155,21 +207,33 @@ class Sindh extends Component {
 
                           <div class="col-6">
                             <div class=" small-box">
-                              <h4>Positive</h4>
+                              <h4> 
+                                <IconContext.Provider value={{ color: "rgba(75,192,192,1", 'size': ".8em", style: { marginTop: '-2px' } }}>
+                                    <FaCircle /> Positive
+                                </IconContext.Provider>
+                              </h4>
                               <CountUp end={s_cumulative_tests_positive} />
                               <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_cumulative_tests_positive} /></span> in 24h </small>
                             </div>
                           </div>
                           <div class="col-6">
                             <div class=" small-box">
-                              <h4>Deceased</h4>
+                              <h4> 
+                                <IconContext.Provider value={{ color: "rgba(220,20,60,1)", 'size': ".8em", style: { marginTop: '-3px' } }}>
+                                    <FaCircle /> Deceased
+                                </IconContext.Provider>
+                              </h4>
                               <CountUp end={s_expired} />
                               <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_expired} /></span> in 24h </small>
                             </div>
                           </div>
                           <div class="col-6">
                             <div class=" small-box">
-                              <h4>Recovered</h4>
+                              <h4> 
+                                <IconContext.Provider value={{ color: "rgba(87,229,74,1)", 'size': ".8em", style: { marginTop: '-2px' } }}>
+                                    <FaCircle /> Recovered
+                                </IconContext.Provider>
+                              </h4>
                               <CountUp end={s_discharged} />
                               <small className="tx-color-03"> <span style={{color: 'green'}} >+<CountUp end={sl_discharged} /></span> in 24h </small>
                             </div>

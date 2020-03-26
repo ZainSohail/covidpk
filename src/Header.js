@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Moment from 'moment';
 import { ReactComponent as Flag } from './flag.svg';
+import * as firebase from 'firebase';
 
 class Header extends Component {
 
@@ -14,16 +15,23 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-        isLoaded: true,
+    let ref = firebase.database().ref('/');
+    ref.on('value', snapshot => {
+        const state = snapshot.val();
+        this.setState({
+          isLoaded: true,
+          data: state,
+        });
     });
   }
 
   render() {
     const { error, isLoaded, data } = this.state;
+    var date = '';
 
     if ( data !== undefined ) {
-        var record = data.pop();
+        console.log(data.last_updated);
+        var date = Moment(data.last_updated).format('D MMMM YYYY');
     }
 
     if (error) {
@@ -41,7 +49,7 @@ class Header extends Component {
                     <div className="col-md-6 text-right">
                         <p class="lead mb-0">
                             <small class="tx-color-04">
-                                Last Updated: 25 March 2020
+                                Last Updated: {date}
                             </small>
                         </p>
                     </div>

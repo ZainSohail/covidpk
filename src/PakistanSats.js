@@ -35,6 +35,20 @@ class PakistanSats extends Component {
     });
   }
 
+    growthRateCalc(present, past, n, in_perc) {
+        var base = (present / past)
+        var exponent = (1 / (n - 1) );
+        var calc = parseFloat( Math.pow(base, exponent) ) - 1;
+        var perc = calc * 100;
+        var calcsign = <FaArrowUp style={{fontSize: "0.4em"}}/>;
+        var prsign = '%';
+        if (in_perc) {
+            return perc.toFixed(2) + prsign;
+        } else {
+            return calc.toFixed(2) + calcsign;
+        }
+    }
+
   render() {
     const { error, isLoaded, data } = this.state;
 
@@ -43,6 +57,7 @@ class PakistanSats extends Component {
     var total_in_hospital = 0;
     var total_recovered = 0;
     var total_tests_performed = 0;
+    var total_population = 0;
 
     // sindh
     var cumulative_suspected = 0;
@@ -62,6 +77,7 @@ class PakistanSats extends Component {
     var l_total_recovered = 0;
 
     var growthRate = 0;
+    var affected_percent_population = 0;
 
     if ( data !== null ) {
         
@@ -69,6 +85,7 @@ class PakistanSats extends Component {
             sindhMaxStats = (sindhStat.length - 1),
             sindhLastStat = sindhStat[sindhMaxStats],
             sindhSecondLastResult = sindhStat[(sindhMaxStats - 1)],
+
 
             punjabStat = data.countries.pakistan.provinces.punjab.stats,
             punjabMaxStats = (punjabStat.length - 1),
@@ -198,7 +215,9 @@ class PakistanSats extends Component {
                       parseInt(gbStat[0].cumulative_tests_positive) + 
                       parseInt(kptStat[0].cumulative_tests_positive);
 
-            growthRate = parseFloat((ev - bv) / bv).toFixed(2);
+
+            total_population = data.countries.pakistan.population_size;
+            growthRate = this.growthRateCalc(ev, bv, sindhStat.length, true);
 
     }
 
@@ -273,7 +292,7 @@ class PakistanSats extends Component {
                       <div className="card-body growth_rate">
                          <h3 className="card-title text-left text-uppercase">Growth Rate</h3>
                          <p className="card-text" >
-                            {growthRate} <FaArrowUp style={{fontSize: "0.4em"}}/> 
+                            {growthRate}
                          </p>
                       </div>
                    </div>

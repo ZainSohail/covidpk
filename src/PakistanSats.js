@@ -101,15 +101,40 @@ class PakistanSats extends Component {
             kptSecondLastResult = kptStat[(kptMaxStats - 1)];
         
             // current
-            total_tests_performed = parseInt(sindhLastStat.cumulative_tests) + parseInt(punjabLastStat.cumulative_tests) + parseInt(ictLastStat.cumulative_tests) + parseInt(ajkLastStat.cumulative_tests) + parseInt(balochistanLastStat.cumulative_tests) + parseInt(gbLastStat.cumulative_tests) + parseInt(kptLastStat.cumulative_tests); 
+            total_tests_performed = parseInt(sindhLastStat.cumulative_tests) + 
+                                    parseInt(punjabLastStat.cumulative_tests) + 
+                                    parseInt(ictLastStat.cumulative_tests) + 
+                                    parseInt(ajkLastStat.cumulative_tests) + 
+                                    parseInt(balochistanLastStat.cumulative_tests) + 
+                                    parseInt(gbLastStat.cumulative_tests) + 
+                                    parseInt(kptLastStat.cumulative_tests); 
 
-            total_cases = parseInt(sindhLastStat.cumulative_tests_positive) + parseInt(punjabLastStat.cumulative_tests_positive) + parseInt(ictLastStat.cumulative_tests_positive) + parseInt(ajkLastStat.cumulative_tests_positive) + parseInt(balochistanLastStat.cumulative_tests_positive) + parseInt(gbLastStat.cumulative_tests_positive) + parseInt(kptLastStat.cumulative_tests_positive);
+            total_cases           = parseInt(sindhLastStat.cumulative_tests_positive) + 
+                                    parseInt(punjabLastStat.cumulative_tests_positive) + 
+                                    parseInt(ictLastStat.cumulative_tests_positive) + 
+                                    parseInt(ajkLastStat.cumulative_tests_positive) + 
+                                    parseInt(balochistanLastStat.cumulative_tests_positive) + 
+                                    parseInt(gbLastStat.cumulative_tests_positive) + 
+                                    parseInt(kptLastStat.cumulative_tests_positive);
 
-            total_deaths = parseInt(sindhLastStat.expired) + parseInt(punjabLastStat.expired) + parseInt(ictLastStat.expired) + parseInt(ajkLastStat.expired) + parseInt(balochistanLastStat.expired) + parseInt(gbLastStat.expired) + parseInt(kptLastStat.expired)
+            total_deaths          = parseInt(sindhLastStat.expired) + 
+                                    parseInt(punjabLastStat.expired) + 
+                                    parseInt(ictLastStat.expired) + 
+                                    parseInt(ajkLastStat.expired) + 
+                                    parseInt(balochistanLastStat.expired) + 
+                                    parseInt(gbLastStat.expired) + 
+                                    parseInt(kptLastStat.expired)
 
-            total_in_hospital = parseInt(sindhLastStat.still_admitted) + parseInt(punjabLastStat.still_admitted) + parseInt(ictLastStat.still_admitted) + parseInt(ajkLastStat.still_admitted) + parseInt(balochistanLastStat.still_admitted) + parseInt(gbLastStat.still_admitted) + parseInt(kptLastStat.still_admitted); 
+            total_in_hospital     = parseInt(sindhLastStat.still_admitted) + 
+                                    parseInt(punjabLastStat.still_admitted) + 
+                                    parseInt(ictLastStat.still_admitted) + 
+                                    parseInt(ajkLastStat.still_admitted) + 
+                                    parseInt(balochistanLastStat.still_admitted) + 
+                                    parseInt(gbLastStat.still_admitted) + 
+                                    parseInt(kptLastStat.still_admitted); 
 
-            total_recovered = parseInt(sindhLastStat.discharged) + parseInt(punjabLastStat.discharged) + parseInt(ictLastStat.discharged) + parseInt(ajkLastStat.discharged) + parseInt(balochistanLastStat.discharged) + parseInt(gbLastStat.discharged) + parseInt(kptLastStat.discharged);
+            total_recovered       = parseInt(sindhLastStat.discharged) + 
+                                    parseInt(punjabLastStat.discharged) + parseInt(ictLastStat.discharged) + parseInt(ajkLastStat.discharged) + parseInt(balochistanLastStat.discharged) + parseInt(gbLastStat.discharged) + parseInt(kptLastStat.discharged);
 
             
             // last 24 

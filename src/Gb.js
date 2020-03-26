@@ -180,7 +180,7 @@ class Gb extends Component {
                <div className="card-body">
                     <h3 className="card-title text-left text-uppercase">Gilgit Baltistan</h3>
                     <div class="row small-boxes">
-                          <div class="col col-xs-6">
+                          <div class="col-6">
                             <div class="small-box">
                               <h4>Total Tests</h4>
                               <CountUp end={s_cumulative_tests} />
@@ -188,21 +188,21 @@ class Gb extends Component {
                             </div>
                           </div>
 
-                          <div class="col col-xs-6">
+                          <div class="col-6">
                             <div class=" small-box">
                               <h4>Positive</h4>
                               <CountUp end={s_cumulative_tests_positive} />
                               <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_cumulative_tests_positive} /></span> in 24h </small>
                             </div>
                           </div>
-                          <div class="col col-xs-6">
+                          <div class="col-6">
                             <div class=" small-box">
                               <h4>Deceased</h4>
                               <CountUp end={s_expired} />
                               <small className="tx-color-03"> <span style={{color: 'red'}} >+<CountUp end={sl_expired} /></span> in 24h </small>
                             </div>
                           </div>
-                          <div class="col col-xs-6">
+                          <div class="col-6">
                             <div class=" small-box">
                               <h4>Recovered</h4>
                               <CountUp end={s_discharged} />

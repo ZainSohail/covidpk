@@ -35,7 +35,7 @@ class PakistanSats extends Component {
     });
   }
 
-    growthRateCalc(present, past, n, in_perc) {
+    totalgrowthRateCalc(present, past, n, in_perc) {
         var base = (present / past)
         var exponent = (1 / (n - 1) );
         var calc = parseFloat( Math.pow(base, exponent) ) - 1;
@@ -43,10 +43,15 @@ class PakistanSats extends Component {
         var calcsign = <FaArrowUp style={{fontSize: "0.4em"}}/>;
         var prsign = '%';
         if (in_perc) {
-            return perc.toFixed(2) + prsign;
+            return perc.toFixed(2);
         } else {
             return calc.toFixed(2) + calcsign;
         }
+    }
+
+    daygrowthRateCalc(present, past) {
+        var base = ( (present - past) / past );
+        return base.toFixed(2);
     }
 
   render() {
@@ -78,6 +83,9 @@ class PakistanSats extends Component {
 
     var growthRate = 0;
     var affected_percent_population = 0;
+    var future_predic = 0;
+    var dayGrowthRate = 0;
+    var sl_total_cases = 0;
 
     if ( data !== null ) {
         
@@ -215,9 +223,14 @@ class PakistanSats extends Component {
                       parseInt(gbStat[0].cumulative_tests_positive) + 
                       parseInt(kptStat[0].cumulative_tests_positive);
 
+            //Second last total cases 
+            sl_total_cases = total_cases - l_total_cases;
 
             total_population = data.countries.pakistan.population_size;
-            growthRate = this.growthRateCalc(ev, bv, sindhStat.length, true);
+            growthRate = this.totalgrowthRateCalc(ev, bv, sindhStat.length, true);
+
+            dayGrowthRate = this.daygrowthRateCalc(total_cases, sl_total_cases);
+            future_predic = ((dayGrowthRate * total_cases) + total_cases).toFixed(0);
 
     }
 
@@ -287,18 +300,18 @@ class PakistanSats extends Component {
                       </div>
                    </div>
                 </div>
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body growth_rate">
-                         <h3 className="card-title text-left text-uppercase">Growth Rate</h3>
-                         <p className="card-text" >
-                            {growthRate}
-                         </p>
-                      </div>
-                   </div>
-                </div>
               </div>
             </div>
+          </div>
+
+          <hr className="my-4" />
+          <h1 className="mb-4 text-left heading">Predictive</h1>
+          <div className="row">
+              <div className="col-md-12">
+              <ul>
+                <li>With the current growth rate of <strong>{growthRate}%</strong> total positive cases are expected to be <strong>{future_predic}</strong> in the next 24 Hours.</li>
+              </ul>
+              </div>
           </div>
 
           <hr className="my-4" />

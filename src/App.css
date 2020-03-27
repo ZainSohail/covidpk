@@ -22,6 +22,10 @@
   color: #01411C;
 }
 
+li {
+  margin-bottom: 3px;
+}
+
 .small-boxes:not(.vertical) {
     border-bottom: 1px solid #eee;
     margin-bottom: 25px;

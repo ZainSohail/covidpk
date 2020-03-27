@@ -45,7 +45,7 @@ class PakistanSats extends Component {
         if (in_perc) {
             return perc.toFixed(2);
         } else {
-            return calc.toFixed(2) + calcsign;
+            return calc.toFixed(2);
         }
     }
 
@@ -86,6 +86,8 @@ class PakistanSats extends Component {
     var future_predic = 0;
     var dayGrowthRate = 0;
     var sl_total_cases = 0;
+    var fatalityRate = 0;
+    var recovery_rate = 0;
 
     if ( data !== null ) {
         
@@ -232,6 +234,14 @@ class PakistanSats extends Component {
             dayGrowthRate = this.daygrowthRateCalc(total_cases, sl_total_cases);
             future_predic = ((dayGrowthRate * total_cases) + total_cases).toFixed(0);
 
+            fatalityRate = (total_deaths / total_cases).toFixed(4) * 100;
+            recovery_rate = 100 - fatalityRate;
+            var expectedRecovered = ( (recovery_rate * total_cases) / 100 ).toFixed(0);
+
+            var globalFatalityRate = (18440 / 414179).toFixed(4) * 100;
+            var globalRecovery_rate = 100 - globalFatalityRate;
+            var globalExpectedRecovered = ( (globalRecovery_rate * total_cases) / 100 ).toFixed(0);
+
     }
 
     if (error) {
@@ -309,7 +319,8 @@ class PakistanSats extends Component {
           <div className="row">
               <div className="col-md-12">
               <ul>
-                <li>With the current growth rate of <strong>{growthRate}%</strong> total positive cases are expected to be <strong>{future_predic}</strong> in the next 24 Hours.</li>
+                <li>With the current growth rate of <strong>{growthRate}%</strong> total positive cases are expected to become <strong>{future_predic}</strong> in the next 24 hours.</li>
+                <li>With the current recovery rate of <strong>{recovery_rate}%</strong>, the expected number of people to fully recover from this virus is <strong>{expectedRecovered}</strong>.</li>
               </ul>
               </div>
           </div>

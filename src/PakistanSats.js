@@ -10,6 +10,8 @@ import Gb from './Gb.js';
 import Ict from './Ict.js';
 import Kpt from './Kpt.js';
 import { FaArrowUp } from 'react-icons/fa';
+import Moment from 'moment';
+import { EqualHeight, EqualHeightElement } from 'react-equal-height';
 
 
 class PakistanSats extends Component {
@@ -88,6 +90,7 @@ class PakistanSats extends Component {
     var sl_total_cases = 0;
     var fatalityRate = 0;
     var recovery_rate = 0;
+    var latUpdated = '';
 
     if ( data !== null ) {
         
@@ -242,6 +245,9 @@ class PakistanSats extends Component {
             var globalRecovery_rate = 100 - globalFatalityRate;
             var globalExpectedRecovered = ( (globalRecovery_rate * total_cases) / 100 ).toFixed(0);
 
+
+            var lastUpdated =  Moment(data.last_updated).format('D MMMM YYYY');
+
     }
 
     if (error) {
@@ -251,78 +257,103 @@ class PakistanSats extends Component {
     } else {
       return (
         <div>
-          <div className="row row-eq-height">
+          <div className="row">
+            <div className="col-12"><p className="card-title text-center text-uppercase mb-0">Last Updated: {lastUpdated} </p>  <br/></div>
             <div className="col-md-12 col-xs-12">
-              <div className="row row-eq-height">
-
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_tests_performed} />
-                            <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_tests_performed}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_cases} />
-                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">In hospital</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_in_hospital } />
-                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_in_hospital}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">Recovered</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_recovered} />
-                            <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_recovered}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
-                <div className="col-md-4 col-xs-12 mb-4">
-                   <div className="card">
-                      <div className="card-body">
-                         <h3 className="card-title text-left text-uppercase">Deceased</h3>
-                         <p className="card-text text-left" >
-                            <CountUp end={total_deaths} />
-                            <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_deaths}</span> in 24h </small>
-                         </p>
-                      </div>
-                   </div>
-                </div>
+              <div className="row row-eq-height stat_cols">
+                <EqualHeight>
+                    <div className="col-6 col-md-4 col-xs-12 mb-4">
+                       <div className="card">
+                            <EqualHeightElement name="stats">
+                                <div className="card-body">
+                                    <h3 className="card-title text-left text-uppercase">Tests Performed</h3>
+                                    <p className="card-text text-left" >
+                                        <CountUp end={total_tests_performed} />
+                                        <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_tests_performed}</span> in 24h </small>
+                                    </p>
+                                </div>
+                           </EqualHeightElement>
+                       </div>
+                    </div>
+                    <div className="col-6 col-md-4 col-xs-12 mb-4">
+                       <div className="card">
+                       <EqualHeightElement name="stats">
+                          <div className="card-body">
+                             <h3 className="card-title text-left text-uppercase">Total Positive Cases</h3>
+                             <p className="card-text text-left" >
+                                <CountUp end={total_cases} />
+                                <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_cases}</span> in 24h </small>
+                             </p>
+                          </div>
+                        </EqualHeightElement>
+                       </div>
+                    </div>
+                    <div className="col-6 col-md-4 col-xs-12 mb-4">
+                       <div className="card">
+                       <EqualHeightElement name="stats">
+                          <div className="card-body">
+                             <h3 className="card-title text-left text-uppercase">In hospital</h3>
+                             <p className="card-text text-left" >
+                                <CountUp end={total_in_hospital } />
+                                <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_in_hospital}</span> in 24h </small>
+                             </p>
+                          </div>
+                        </EqualHeightElement>
+                       </div>
+                    </div>
+                    <div className="col-6 col-md-4 col-xs-12 mb-4">
+                       <div className="card">
+                       <EqualHeightElement name="stats">
+                          <div className="card-body">
+                             <h3 className="card-title text-left text-uppercase">Recovered</h3>
+                             <p className="card-text text-left" >
+                                <CountUp end={total_recovered} />
+                                <small className="tx-color-03"> <span style={{color: 'green'}} >+{l_total_recovered}</span> in 24h </small>
+                             </p>
+                          </div>
+                        </EqualHeightElement>
+                       </div>
+                    </div>
+                    <div className="col-6 col-md-4 col-xs-12 mb-4">
+                       <div className="card">
+                       <EqualHeightElement name="stats">
+                          <div className="card-body">
+                             <h3 className="card-title text-left text-uppercase">Deceased</h3>
+                             <p className="card-text text-left" >
+                                <CountUp end={total_deaths} />
+                                <small className="tx-color-03"> <span style={{color: 'red'}} >+{l_total_deaths}</span> in 24h </small>
+                             </p>
+                          </div>
+                        </EqualHeightElement>
+                       </div>
+                    </div>
+                </EqualHeight>
               </div>
             </div>
           </div>
 
           <hr className="my-4" />
-          <h1 className="mb-4 text-left heading">Predictive</h1>
           <div className="row">
-              <div className="col-md-12">
-              <ul>
-                <li>With the current growth rate of <strong>{growthRate}%</strong> total positive cases are expected to become <strong>{future_predic}</strong> in the next 24 hours.</li>
-                <li>With the current recovery rate of <strong>{recovery_rate}%</strong>, the expected number of people to fully recover from this virus is <strong>{expectedRecovered}</strong>.</li>
-              </ul>
-              </div>
+            <div className="col-md-12 col-xs-12 mb-4">
+               <div className="card">
+                  <div className="card-body leftSlide" style={{borderLeft: "10px solid red"}}>
+                      <div className="col-md-12">
+                          <small>With the current growth rate of </small> <strong>{growthRate}%</strong>, <small>the total number of positive cases are expected to become</small> <strong style={{color: "red"}}>{future_predic}</strong> <small>in the next 24 hours. </small>
+                      </div>
+                  </div>
+               </div>
+            </div>
+
+            <div className="col-md-12 col-xs-12 mb-4">
+             <div className="card">
+                <div className="card-body leftSlide" style={{borderLeft: "10px solid rgb(87, 229, 74)"}}>
+                   <div className="col-md-12">
+                         <small>With the current mortality rate of </small><strong>{fatalityRate}%</strong>, <small>the expected number of people to recover from the desease are</small> <strong style={{color: "green"}}>{expectedRecovered}</strong>.
+                      
+                      </div>
+                </div>
+             </div>
+            </div>
           </div>
 
           <hr className="my-4" />

@@ -20,12 +20,6 @@ function App() {
       <div className="container">
           <Header />
           
-          {/* <div className="row">
-            <div className="col-md-12">
-              <GlobalStats />
-            </div>
-          </div>*/}
-          
           <Router>
             <Switch>
               <Route path="/add">
@@ -33,16 +27,15 @@ function App() {
               </Route>
               <Route path="/">
                 <div className="row">
+                  <div className="col-md-12 m-auto">
+                    <History />
+                  </div>
+                </div>
+                <div className="row">
                   <div className="col-md-12">
                     <PakistanSats />
                   </div>
                 </div>
-
-                {/*<div className="row  mt-5">
-                  <div className="col-md-12 m-auto">
-                    <History />
-                  </div>
-                </div>*/}
               </Route>
             </Switch>
           </Router>

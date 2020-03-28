@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Line} from 'react-chartjs-2';
 import Moment from 'moment';
+import { FaCircle } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
 class History extends Component {
 
@@ -19,7 +21,7 @@ class History extends Component {
   }
 
   async fetchStats() {
-    fetch("D:/Business/covid/covidpk-master/covidpk-master/data.json", {
+    fetch("https://covid19.com.pk/data.json", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -62,7 +64,7 @@ class History extends Component {
     if ( dateData.length !== undefined ) {
 
       for (let i = 0; i < dateData.length; i++) {
-        labels.push(Moment(dateData[i].date).format('D MMM HH:mm'));
+        labels.push(Moment(dateData[i].date).format('Do HH:mm'));
         cases.push(dateData[i].total.replace(",", ""));
       }
 
@@ -73,25 +75,43 @@ class History extends Component {
         datasets: [{
           label: "Total Cases",
           borderColor: "#000",
-          fill: false,
+          fill: true,
           lineTension: 0.1,
-          backgroundColor: 'rgba(75,192,192,0.4)',
-          borderColor: 'rgba(75,192,192,1)',
+          backgroundColor: 'rgba(255,0,0,0.1)',
+          borderColor: 'rgba(255,0,0,1)',
           borderCapStyle: 'butt',
           borderDash: [],
           borderDashOffset: 0.0,
           borderJoinStyle: 'miter',
-          pointBorderColor: 'rgba(75,192,192,1)',
-          pointBackgroundColor: '#fff',
-          pointBorderWidth: 1,
-          pointHoverRadius: 5,
-          pointHoverBackgroundColor: 'rgba(75,192,192,1)',
-          pointHoverBorderColor: 'rgba(220,220,220,1)',
+          pointBorderColor: 'rgba(255,0,0,1)',
+          pointBackgroundColor: 'rgba(255,0,0,1)',
+          pointBorderWidth: 3,
+          pointHoverRadius: 3,
+          pointHoverBackgroundColor: 'rgba(255,0,0,1)',
+          pointHoverBorderColor: 'rgba(255,0,0,1)',
           pointHoverBorderWidth: 2,
           pointRadius: 1,
           pointHitRadius: 10,
-          data: cases,
+          steppedLine: false,
+          data: cases
         }],
+    }
+
+    var options = {
+          maintainAspectRatio: true,
+          fullWidth: true,
+          scales: {
+          yAxes: [
+            {
+              display: false, // this will hide vertical lines
+            },
+          ],
+          xAxes: [
+            {
+              display: false, // this will hide vertical lines
+            },
+          ],
+        },
     }
 
     if (error) {
@@ -101,11 +121,15 @@ class History extends Component {
     } else {
       return (
         <div>
-          <h4>Heartbeat</h4>
-          <br/>
           <div className="mb-5">
-            <Line data={data} height={200} options={{ maintainAspectRatio: true }} />
+            <h5 className="card-title text-uppercase text-center">
+               <IconContext.Provider value={{ color: "red", 'size': ".8em", style: { marginTop: '-4px' } }}>
+                    <FaCircle /> Live heartbeat 
+                </IconContext.Provider>
+            </h5>
+            <Line data={data} fullWidth={false} height={50} options={options} legend={false} tooltips={false}/>
           </div>
+          <hr/>
         </div>
       );
     }

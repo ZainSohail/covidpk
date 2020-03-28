@@ -9,20 +9,13 @@ class Header extends Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
+      isLoaded: true,
       data: []
     };
   }
 
   componentDidMount() {
-    let ref = firebase.database().ref('/');
-    ref.on('value', snapshot => {
-        const state = snapshot.val();
-        this.setState({
-          isLoaded: true,
-          data: state,
-        });
-    });
+    
   }
 
   render() {
@@ -43,15 +36,8 @@ class Header extends Component {
         <div>
             <header>
                 <div className="row">
-                    <div className="col-md-6 text-left">
+                    <div className="col-12 text-center">
                         <h1 class="heading">COVID-19 in Pakistan<span class="flag"><Flag/></span></h1>
-                    </div>
-                    <div className="col-md-6 text-right">
-                        <p class="lead mb-0">
-                            <small class="tx-color-04">
-                                Last Updated: {date}
-                            </small>
-                        </p>
                     </div>
                 </div>
                 <hr />
